@@ -28,6 +28,6 @@ security:
                 authenticators:
                     - lexik_jwt_authentication.jwt_token_authenticator
     access_control:
-        - { path: ^/home, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/authentication_token, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/, roles: IS_AUTHENTICATED_FULLY }
+        # - { path: ^/home, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        # - { path: ^/authentication_token, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        # - { path: ^/, roles: IS_AUTHENTICATED_FULLY }

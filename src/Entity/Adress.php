@@ -3,11 +3,22 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiSubresource;
 use App\Repository\AdressRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ApiResource()
+ * * @ApiResource(normalizationContext={"groups"={"get"}},
+ *     itemOperations={
+ *         "get"={
+ *             "normalization_context"={"groups"={"get"}}
+ *         },
+ *         "put"={
+ *             "normalization_context"={"groups"={"put"}}
+ *         }
+ *     }
+ * )
  * @ORM\Entity(repositoryClass=AdressRepository::class)
  */
 class Adress
@@ -22,23 +33,27 @@ class Adress
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("get")
      * 
      */
     private $numberStreet;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("get")
      * 
      */
     private $nameStreet;
 
     /**
      * @ORM\Column(type="string", length=5)
+     * @Groups("get")
      */
     private $postCode;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("get")
      * 
      */
     private $town;

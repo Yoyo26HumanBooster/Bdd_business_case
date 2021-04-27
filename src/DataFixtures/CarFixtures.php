@@ -170,9 +170,11 @@ class CarFixtures extends Fixture implements DependentFixtureInterface
             $car->setRegistrationYear($value['registration_year']);
             $car->setMileage($value['mileage']);
             $car->setPublishedAt($value['published_at']); 
-            $car->setUpdatedAt($value['updated_at']);           
-            $manager->persist($car);       
+            $car->setUpdatedAt($value['updated_at']); 
             
+            $manager->persist($car);   
+            
+            $this->addReference('VOITURE_'.$value['reference'], $car);
 
         }
     
